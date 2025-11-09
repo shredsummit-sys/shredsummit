@@ -80,7 +80,24 @@
 005 |         <div id="progressBar" style="width: 0%; height: 100%; background: #22c55e; transition: width 0.5s;"></div>
 006 |       </div>
 007 |     </div>
-008 |
+008 |001 |     <!-- SHARE BUTTON -->
+002 |     <div style="text-align: center; margin: 30px 0;">
+003 |       <button onclick="shareProgress()" style="background: #60a5fa; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1em;">
+004 |         Share My Progress 🔥
+005 |       </button>
+006 |     </div>
+007 |
+008 |     <script>
+009 |       function shareProgress() {
+010 |         const completed = Array.from(document.querySelectorAll('.trick.completed')).map(t => t.innerText).join(', ');
+011 |         const text = `I just hit ${completed || 'Ollie'} on Shred Summit! Free trick tracker: https://shredsummit-sys.github.io/shredsummit`;
+012 |         navigator.clipboard.writeText(text).then(() => {
+013 |           alert('Copied to clipboard! Paste on Reddit or Discord 🚀');
+014 |         }).catch(() => {
+015 |           prompt('Copy this:', text);
+016 |         });
+017 |       }
+018 |     </script>
 009 |     <script>
 010 |       function updateProgress() {
 011 |         const total = document.querySelectorAll('.trick').length;
