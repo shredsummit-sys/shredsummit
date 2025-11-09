@@ -1,203 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- GOOGLE ANALYTICS G-456R5S4LS0 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-456R5S4LS0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-456R5S4LS0');
-</script>
-<!-- END GOOGLE ANALYTICS -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shred Summit 2026 | Home</title>
-  <meta name="description" content="Shred Summit 2026 – Public-voted snowboard gear, events, travel, and rider stories. No sponsorships. Real riders only.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    html, body { width:100%; overflow-x:hidden; font-size:16px; background:#000; color:#fff; min-height:100vh; display:flex; flex-direction:column; }
-    a { text-decoration:none; color:#fff; }
-
-    .navbar { 
-      position:fixed; top:12px; left:50%; transform:translateX(-50%); 
-      width:calc(100% - 24px); max-width:1400px; 
-      background:rgba(15,15,15,0.6); backdrop-filter:blur(20px); 
-      border:none; border-radius:16px; 
-      display:flex; justify-content:center; z-index:1000; 
-      box-shadow:0 8px 32px rgba(0,0,0,0.4), inset 0 0 30px rgba(0,255,204,0.1); 
-      transition:all .4s ease; 
-    }
-    .navbar:hover { background:rgba(20,20,20,0.8); box-shadow:0 12px 40px rgba(0,0,0,0.5), inset 0 0 40px rgba(0,255,204,0.2); }
-    .navbar > ul { display:flex; gap:0; padding:0.8rem 1.5rem; margin:0; list-style:none; }
-    .navbar > ul > li { position:relative; margin:0 1rem; }
-    .navbar > ul > li > a { 
-      display:flex; align-items:center; gap:0.5rem; 
-      padding:0.8rem 1.2rem; font-weight:800; font-size:1.35rem; text-transform:uppercase; 
-      color:#00ffcc; text-shadow:0 0 8px #00ffcc; border-radius:12px; 
-      transition:all .3s ease; position:relative; overflow:hidden; 
-    }
-    .navbar > ul > li > a::before { 
-      content:''; position:absolute; top:0; left:0; width:100%; height:100%; 
-      background:linear-gradient(45deg, transparent, rgba(0,255,204,0.15), transparent); 
-      transform:translateX(-100%); transition:transform .6s; 
-    }
-    .navbar > ul > li > a:hover::before { transform:translateX(100%); }
-    .navbar > ul > li > a:hover { 
-      color:#ffffff; text-shadow:0 0 15px #00ffcc, 0 0 30px #ff004c; 
-      background:rgba(0,255,204,0.15); transform:scale(1.05); 
-    }
-    .navbar li ul { 
-      position:absolute; top:100%; left:50%; transform:translateX(-50%); 
-      background:rgba(10,10,10,0.95); backdrop-filter:blur(16px); 
-      border:1px solid rgba(0,255,204,0.3); border-radius:12px; 
-      padding:0.8rem 0; min-width:220px; opacity:0; visibility:hidden; 
-      box-shadow:0 12px 30px rgba(0,0,0,0.6); transition:all .4s ease; margin-top:8px; 
-    }
-    .navbar li:hover > ul { opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px); }
-    .navbar li ul a { 
-      display:flex; align-items:center; gap:0.5rem; 
-      padding:0.6rem 1.5rem; font-size:1.1rem; color:#00d1ff; 
-      transition:all .3s; 
-    }
-    .navbar li ul a:hover { color:#fff; background:rgba(255,0,76,0.2); padding-left:2rem; }
-    @media (max-width: 992px) { .navbar { display: none !important; } }
-
-    .poster-wrapper { 
-      margin-top:80px; width:100%; padding:2rem; 
-      background:radial-gradient(circle at center,rgba(0,255,204,0.1),transparent 70%); 
-      box-shadow:0 0 40px rgba(0,255,204,0.4),0 0 80px rgba(255,0,76,0.3); 
-      border-radius:16px; animation:glowPulse 4s infinite ease-in-out; 
-      text-align:center;
-    }
-    .hero-poster { 
-      width:100%; max-width:1920px; height:auto; max-height:85vh; 
-      object-fit:contain; border-radius:12px; 
-      filter:drop-shadow(0 0 20px #00ffcc) drop-shadow(0 0 40px #ff004c); 
-      opacity:0; transition:opacity 1.5s ease-in-out; margin:0 auto; display:block;
-    }
-    .hero-poster.active { opacity:1; }
-    @keyframes glowPulse{0%,100%{box-shadow:0 0 40px rgba(0,255,204,0.4);}50%{box-shadow:0 0 60px rgba(0,255,204,0.6);}}
-
-    .seo-intro { max-width:900px; margin:2rem auto; padding:0 1.5rem; text-align:center; }
-    .seo-intro h1 { font-size:2.4rem; font-weight:900; text-transform:uppercase; color:#00ffcc; text-shadow:0 0 15px #00ffcc; margin-bottom:1rem; }
-    .seo-intro p { font-size:1.1rem; line-height:1.7; color:#ccc; margin-bottom:1.5rem; }
-    .rated-badge { 
-      display:inline-block; background:#ff004c; color:#fff; padding:0.5rem 1.2rem; 
-      border-radius:30px; font-weight:900; text-transform:uppercase; 
-      font-size:0.85rem; margin-top:1.5rem; box-shadow:0 0 20px rgba(255,0,76,0.7); 
-      animation: pulseBadge 3s infinite; 
-    }
-    @keyframes pulseBadge {0%,100% {box-shadow:0 0 20px rgba(255,0,76,0.7);} 50% {box-shadow:0 0 30px rgba(255,0,76,1);}}
-
-    .content { padding-bottom: 150px; text-align:center; color:#ccc; }
-
-    .mobile-nav-4 {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: rgba(0,0,0,0.95); backdrop-filter: blur(12px);
-      padding: 1.5rem 0; display: flex; justify-content: space-around;
-      align-items: center; z-index: 999; height: 120px;
-    }
-    .nav-box {
-      width: 80px; height: 80px; border: none; border-radius: 18px;
-      display: flex; align-items: center; justify-content: center;
-      transition: all .3s ease; position: relative; overflow: visible;
-      box-shadow: 0 0 0 rgba(0,255,204,0);
-      animation: pulseEnlarge 2s infinite;
-      animation-delay: calc(var(--i) * 0.3s);
-    }
-    .nav-box img {
-      width: 56px; height: 80px; object-fit: contain;
-      filter: drop-shadow(0 0 8px rgba(0,255,204,0.6));
-      transition: filter .3s;
-    }
-    @keyframes pulseEnlarge {0%{transform:scale(1);}50%{transform:scale(1.25);box-shadow:0 0 40px #00ffcc,0 0 60px #ff004c,0 0 80px #8a2be2;}100%{transform:scale(1);}}
-    .nav-box:hover, .nav-box.active {animation-play-state:paused;transform:scale(1.15);box-shadow:0 0 35px #00ffcc,0 0 55px #ff004c,0 0 70px #8a2be2;}
-    .nav-box:hover img, .nav-box.active img {filter:drop-shadow(0 0 20px #00ffcc) drop-shadow(0 0 25px #ff004c) drop-shadow(0 0 30px #8a2be2);}
-    .nav-box.active::after {content:'';position:absolute;bottom:-10px;width:12px;height:12px;background:#ff004c;border-radius:50%;box-shadow:0 0 20px #ff004c,0 0 35px #ff004c;animation:pulseDot 1.5s infinite;}
-    @keyframes pulseDot {0%,100%{box-shadow:0 0 20px #ff004c,0 0 35px #ff004c;}50%{box-shadow:0 0 30px #ff004c,0 0 50px #ff004c;}}
-    .mobile-nav-4 .nav-box:nth-child(1) {--i:0;}
-    .mobile-nav-4 .nav-box:nth-child(2) {--i:1;}
-    .mobile-nav-4 .nav-box:nth-child(3) {--i:2;}
-    .mobile-nav-4 .nav-box:nth-child(4) {--i:3;}
-
-    .home-fab {position:fixed;bottom:15rem;right:2rem;z-index:9999;width:60px;height:60px;border-radius:50%;background:linear-gradient(45deg,#00ffcc,#ff004c);display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 0 30px rgba(0,255,204,0.7),0 0 50px rgba(255,0,76,0.5);animation:fabPulse 2s infinite;transition:transform .4s;color:#000;}
-    .blog-fab {position:fixed;bottom:8rem;right:2rem;z-index:9999;width:60px;height:60px;border-radius:50%;background:linear-gradient(45deg,#ff004c,#00ffcc);display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 0 30px rgba(255,0,76,0.7),0 0 50px rgba(0,255,204,0.5);animation:fabPulse 2s infinite;transition:transform .4s;}
-    .home-fab:hover, .blog-fab:hover {transform:rotate(360deg) scale(1.2);}
-    @keyframes fabPulse {0%,100%{box-shadow:0 0 30px rgba(255,0,76,0.7);}50%{box-shadow:0 0 45px rgba(255,0,76,0.9);}}
-
-    @media (min-width: 993px) {.mobile-nav-4, .home-fab, .blog-fab {display:none !important;}}
-  </style>
-</head>
-<body>
-
-  <nav class="navbar">
-    <ul>
-      <li><a href="https://shredsummit.co.uk/">Home</a></li>
-      <li><a href="https://shredsummit.co.uk/about-us/">About Us</a></li>
-      <li><a href="https://shredsummit.co.uk/2026-travel-events">Travel & Events</a></li>
-      <li><a href="https://shredsummit.co.uk/top-rated-best-selling-gear/">Top Rated Gear</a></li>
-      <li><a href="https://shredsummit.co.uk/shred-party-submit/">Submit & Shred</a></li>
-    </ul>
-  </nav>
-
-  <div class="poster-wrapper" id="poster-container"></div>
-
-  <div class="seo-intro">
-    <h1>Shred Summit 2026</h1>
-    <p><strong>Public-voted. No sponsorships. Real riders only.</strong> Gear, travel, events, stories — all ranked by the people who live it. <strong>Updated live.</strong></p>
-    <div class="rated-badge">RATED BY THE PUBLIC</div>
-  </div>
-
-  <div class="content">
-    <p>Welcome to the future of snowboarding. Explore gear, plan trips, submit your shred, read the blog.</p>
-  </div>
-
-  <nav class="mobile-nav-4">
-    <a href="https://shredsummit.co.uk/about-us/" class="nav-box">
-      <img src="https://shredsummit.co.uk/wp-content/uploads/2025/11/nav-about.jpg" alt="About Us">
-    </a>
-    <a href="https://shredsummit.co.uk/2026-travel-events" class="nav-box">
-      <img src="https://shredsummit.co.uk/wp-content/uploads/2025/11/grok_image_5673fd.jpg" alt="Travel & Events">
-    </a>
-    <a href="https://shredsummit.co.uk/top-rated-best-selling-gear/" class="nav-box">
-      <img src="https://shredsummit.co.uk/wp-content/uploads/2025/11/grok_image_zc2pdj.jpg" alt="Top Rated Gear">
-    </a>
-    <a href="https://shredsummit.co.uk/shred-party-submit/" class="nav-box">
-      <img src="https://shredsummit.co.uk/wp-content/uploads/2025/11/grok_image_d5a3kq2.jpg" alt="Submit & Shred">
-    </a>
-  </nav>
-
-  <a href="https://shredsummit.co.uk/" class="home-fab"><i class="fas fa-home"></i></a>
-  <a href="/blog" class="blog-fab"><i class="fas fa-blog"></i></a>
-
-  <script>
-    const posters = [
-      "https://shredsummit.co.uk/wp-content/uploads/2025/11/grok_image_toiexr.jpg",
-      "https://shredsummit.co.uk/wp-content/uploads/2025/11/grok_image_x7ylj0f.jpg",
-      "https://shredsummit.co.uk/wp-content/uploads/2025/11/grok_image_xdd9wn6.jpg",
-      "https://shredsummit.co.uk/wp-content/uploads/2025/11/grok_image_tbu71u.jpg",
-      "https://shredsummit.co.uk/wp-content/uploads/2025/11/grok_image_tdfvo2.jpg",
-      "https://shredsummit.co.uk/wp-content/uploads/2025/11/grok_image_exqrx7-2.jpg"
-    ];
-    function getWeekNumber(d) {
-      d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-      const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-      return Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
-    }
-    const now = new Date();
-    const week = getWeekNumber(now);
-    const posterIndex = (week - 1) % posters.length;
-    const currentPoster = posters[posterIndex];
-    const container = document.getElementById('poster-container');
-    const img = document.createElement('img');
-    img.src = currentPoster;
-    img.alt = "Shred Summit 2026 – Weekly rotating snowboard hero";
-    img.className = "hero-poster active";
-    img.loading = "lazy";
-    container.appendChild(img);
-  </script>
-
-</body>
-</html>
+001 | <!DOCTYPE html>
+002 | <html lang="en">
+003 | <head>
+004 |   <meta charset="UTF-8">
+005 |   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+006 |   <title>Shred Summit - Free Snowboard Trick Progression</title>
+007 |   <meta name="description" content="Free snowboard trick ladder from beginner to pro. Track progress, no sign-up.">
+008 |   <!-- Google Analytics -->
+009 |   <script async src="https://www.googletagmanager.com/gtag/js?id=G-456R5S4LS0"></script>
+010 |   <script>
+011 |     window.dataLayer = window.dataLayer || [];
+012 |     function gtag(){dataLayer.push(arguments);}
+013 |     gtag('js', new Date());
+014 |     gtag('config', 'G-456R5S4LS0');
+015 |   </script>
+016 |   <style>
+017 |     body { font-family: 'Helvetica', sans-serif; margin: 0; padding: 0; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+018 |     header { background: #1e293b; padding: 20px; text-align: center; }
+019 |     h1 { margin: 0; color: #60a5fa; }
+020 |     .container { max-width: 900px; margin: 20px auto; padding: 20px; background: #1e293b; border-radius: 12px; }
+021 |     .trick-ladder { display: grid; gap: 15px; }
+022 |     .trick { background: #334155; padding: 15px; border-radius: 8px; cursor: pointer; }
+023 |     .trick.completed { background: #22c55e; }
+024 |     .trip-card, .gear-card { background: #334155; padding: 15px; border-radius: 8px; margin: 10px 0; }
+025 |     a { color: #60a5fa; text-decoration: none; }
+026 |     a:hover { text-decoration: underline; }
+027 |     footer { text-align: center; padding: 30px; font-size: 0.9em; color: #94a3b8; border-top: 1px solid #334155; margin-top: 50px; }
+028 |   </style>
+029 | </head>
+030 | <body>
+031 |
+032 |   <header>
+033 |     <h1>Shred Summit</h1>
+034 |     <p>Free Snowboard Trick Progression Tool</p>
+035 |   </header>
+036 |
+037 |   <div class="container">
+038 |     <!-- TRICK LADDER (YOUR ORIGINAL CODE GOES HERE) -->
+039 |     <h2>Trick Ladder</h2>
+040 |     <div class="trick-ladder" id="trickList">
+041 |       <!-- Add your trick items here, e.g.: -->
+042 |       <div class="trick" onclick="toggle(this)">Ollie</div>
+043 |       <div class="trick" onclick="toggle(this)">180</div>
+044 |       <div class="trick" onclick="toggle(this)">360</div>
+045 |       <div class="trick" onclick="toggle(this)">Backside Boardslide</div>
+046 |       <!-- Add more tricks -->
+047 |     </div>
+048 |
+049 |     <script>
+050 |       function toggle(el) {
+051 |         el.classList.toggle('completed');
+052 |         localStorage.setItem('shred-' + el.innerText, el.classList.contains('completed'));
+053 |       }
+054 |       // Load saved progress
+055 |       document.querySelectorAll('.trick').forEach(t => {
+056 |         if (localStorage.getItem('shred-' + t.innerText) === 'true') t.classList.add('completed');
+057 |       });
+058 |     </script>
+059 |
+060 |     <!-- GEAR SECTION -->
+061 |     <h2>Gear We Ride</h2>
+062 |     <div class="gear-card">
+063 |       <strong>Burton Custom Snowboard</strong> – £549<br>
+064 |       <a href="https://www.awin1.com/cread.php?awinmid=18781&awinaffid=1283456&clickref=shred-asylum&p=https%3A%2F%2Fwww.snowboard-asylum.com%2Fburton-custom" target="_blank">Buy at Snowboard Asylum →</a>
+065 |     </div>
+066 |
+067 |     <!-- TRIP PLANNER -->
+068 |     <h2>Where to Shred Next</h2>
+069 |     <div class="trip-card">
+070 |       <strong>Sunweb – Tignes (Budget)</strong> – £650/pp<br>
+071 |       <a href="https://www.awin1.com/cread.php?awinmid=22356&awinaffid=1283456&clickref=shred-sunweb&p=https%3A%2F%2Fwww.sunweb.co.uk%2Fski%2Ftignes" target="_blank">Book Now →</a>
+072 |     </div>
+073 |
+074 |     <!-- ABOUT SECTION -->
+075 |     <section id="about">
+076 |       <h2>About Shred Summit</h2>
+077 |       <p>Built by a UK rider with 8 years on snow. This free tool tracks your trick progression — from 50-50s to 1080s. No sign-up. No ads. Just shredding.</p>
+078 |       <p>We link trusted UK gear & trips (we earn a small cut to keep it free).</p>
+079 |       <p>Questions? DM on <a href="https://reddit.com/u/YOUR_REDDIT_USERNAME" target="_blank">Reddit</a>.</p>
+080 |     </section>
+081 |   </div>
+082 |
+083 |   <!-- FOOTER -->
+084 |   <footer>
+085 |     <p>© 2025 Shred Summit | <a href="privacy.html">Privacy Policy</a> | Built with ❤️ in the UK</p>
+086 |   </footer>
+087 |
+088 | </body>
+089 | </html>
