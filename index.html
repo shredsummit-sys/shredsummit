@@ -73,6 +73,27 @@
 073 |       });
 074 |     </script>
 075 |
+  001 |     <!-- PROGRESS BAR -->
+002 |     <div style="margin: 20px 0; text-align: center;">
+003 |       <p><strong>Your Progress:</strong> <span id="progress">0%</span></p>
+004 |       <div style="width: 100%; background: #334155; height: 20px; border-radius: 10px; overflow: hidden;">
+005 |         <div id="progressBar" style="width: 0%; height: 100%; background: #22c55e; transition: width 0.5s;"></div>
+006 |       </div>
+007 |     </div>
+008 |
+009 |     <script>
+010 |       function updateProgress() {
+011 |         const total = document.querySelectorAll('.trick').length;
+012 |         const completed = document.querySelectorAll('.trick.completed').length;
+013 |         const percent = Math.round((completed / total) * 100);
+014 |         document.getElementById('progress').innerText = percent + '%';
+015 |         document.getElementById('progressBar').style.width = percent + '%';
+016 |       }
+017 |       document.querySelectorAll('.trick').forEach(t => {
+018 |         t.addEventListener('click', updateProgress);
+019 |       });
+020 |       updateProgress(); // Run on load
+021 |     </script>
 076 |     <!-- GEAR WE RIDE -->
 077 |     <h2>Gear We Ride</h2>
 078 |     <p>Our favorites — links help fund this tool.</p>
