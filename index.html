@@ -19,71 +19,105 @@
 019 |     h1 { margin: 0; color: #60a5fa; }
 020 |     .container { max-width: 900px; margin: 20px auto; padding: 20px; background: #1e293b; border-radius: 12px; }
 021 |     .trick-ladder { display: grid; gap: 15px; }
-022 |     .trick { background: #334155; padding: 15px; border-radius: 8px; cursor: pointer; }
-023 |     .trick.completed { background: #22c55e; }
-024 |     .trip-card, .gear-card { background: #334155; padding: 15px; border-radius: 8px; margin: 10px 0; }
-025 |     a { color: #60a5fa; text-decoration: none; }
-026 |     a:hover { text-decoration: underline; }
-027 |     footer { text-align: center; padding: 30px; font-size: 0.9em; color: #94a3b8; border-top: 1px solid #334155; margin-top: 50px; }
-028 |   </style>
-029 | </head>
-030 | <body>
-031 |
-032 |   <header>
-033 |     <h1>Shred Summit</h1>
-034 |     <p>Free Snowboard Trick Progression Tool</p>
-035 |   </header>
-036 |
-037 |   <div class="container">
-038 |     <!-- TRICK LADDER (YOUR ORIGINAL CODE GOES HERE) -->
-039 |     <h2>Trick Ladder</h2>
-040 |     <div class="trick-ladder" id="trickList">
-041 |       <!-- Add your trick items here, e.g.: -->
-042 |       <div class="trick" onclick="toggle(this)">Ollie</div>
-043 |       <div class="trick" onclick="toggle(this)">180</div>
-044 |       <div class="trick" onclick="toggle(this)">360</div>
-045 |       <div class="trick" onclick="toggle(this)">Backside Boardslide</div>
-046 |       <!-- Add more tricks -->
-047 |     </div>
-048 |
-049 |     <script>
-050 |       function toggle(el) {
-051 |         el.classList.toggle('completed');
-052 |         localStorage.setItem('shred-' + el.innerText, el.classList.contains('completed'));
-053 |       }
-054 |       // Load saved progress
-055 |       document.querySelectorAll('.trick').forEach(t => {
-056 |         if (localStorage.getItem('shred-' + t.innerText) === 'true') t.classList.add('completed');
-057 |       });
-058 |     </script>
-059 |
-060 |     <!-- GEAR SECTION -->
-061 |     <h2>Gear We Ride</h2>
-062 |     <div class="gear-card">
-063 |       <strong>Burton Custom Snowboard</strong> – £549<br>
-064 |       <a href="https://www.awin1.com/cread.php?awinmid=18781&awinaffid=1283456&clickref=shred-asylum&p=https%3A%2F%2Fwww.snowboard-asylum.com%2Fburton-custom" target="_blank">Buy at Snowboard Asylum →</a>
-065 |     </div>
-066 |
-067 |     <!-- TRIP PLANNER -->
-068 |     <h2>Where to Shred Next</h2>
-069 |     <div class="trip-card">
-070 |       <strong>Sunweb – Tignes (Budget)</strong> – £650/pp<br>
-071 |       <a href="https://www.awin1.com/cread.php?awinmid=22356&awinaffid=1283456&clickref=shred-sunweb&p=https%3A%2F%2Fwww.sunweb.co.uk%2Fski%2Ftignes" target="_blank">Book Now →</a>
-072 |     </div>
-073 |
-074 |     <!-- ABOUT SECTION -->
-075 |     <section id="about">
-076 |       <h2>About Shred Summit</h2>
-077 |       <p>Built by a UK rider with 8 years on snow. This free tool tracks your trick progression — from 50-50s to 1080s. No sign-up. No ads. Just shredding.</p>
-078 |       <p>We link trusted UK gear & trips (we earn a small cut to keep it free).</p>
-079 |       <p>Questions? DM on <a href="https://reddit.com/u/YOUR_REDDIT_USERNAME" target="_blank">Reddit</a>.</p>
-080 |     </section>
-081 |   </div>
-082 |
-083 |   <!-- FOOTER -->
-084 |   <footer>
-085 |     <p>© 2025 Shred Summit | <a href="privacy.html">Privacy Policy</a> | Built with ❤️ in the UK</p>
-086 |   </footer>
-087 |
-088 | </body>
-089 | </html>
+022 |     .trick { background: #334155; padding: 15px; border-radius: 8px; cursor: pointer; transition: background 0.3s; }
+023 |     .trick:hover { background: #475569; }
+024 |     .trick.completed { background: #22c55e; }
+025 |     .gear-card, .trip-card { background: #334155; padding: 15px; border-radius: 8px; margin: 10px 0; }
+026 |     a { color: #60a5fa; text-decoration: none; }
+027 |     a:hover { text-decoration: underline; }
+028 |     footer { text-align: center; padding: 30px; font-size: 0.9em; color: #94a3b8; border-top: 1px solid #334155; margin-top: 50px; background: #1e293b; }
+029 |   </style>
+030 | </head>
+031 | <body>
+032 |
+033 |   <header>
+034 |     <h1>Shred Summit</h1>
+035 |     <p>Free Snowboard Trick Progression Tool</p>
+036 |   </header>
+037 |
+038 |   <div class="container">
+039 |     <!-- TRICK LADDER -->
+040 |     <h2>Trick Ladder</h2>
+041 |     <p>Click tricks to mark as learned. Progress saves in your browser.</p>
+042 |     <div class="trick-ladder" id="trickList">
+043 |       <div class="trick" onclick="toggle(this)">Ollie</div>
+044 |       <div class="trick" onclick="toggle(this)">180 Frontside</div>
+045 |       <div class="trick" onclick="toggle(this)">180 Backside</div>
+046 |       <div class="trick" onclick="toggle(this)">360 Frontside</div>
+047 |       <div class="trick" onclick="toggle(this)">360 Backside</div>
+048 |       <div class="trick" onclick="toggle(this)">Nollie</div>
+049 |       <div class="trick" onclick="toggle(this)">Boardslide</div>
+050 |       <div class="trick" onclick="toggle(this)">Lipslide</div>
+051 |       <div class="trick" onclick="toggle(this)">Backside Boardslide</div>
+052 |       <div class="trick" onclick="toggle(this)">Frontside Boardslide</div>
+053 |       <div class="trick" onclick="toggle(this)">Blunt Slide</div>
+054 |       <div class="trick" onclick="toggle(this)">Nose Slide</div>
+055 |       <div class="trick" onclick="toggle(this)">Tailslide</div>
+056 |       <div class="trick" onclick="toggle(this)">McTwist</div>
+057 |       <div class="trick" onclick="toggle(this)">540</div>
+058 |       <div class="trick" onclick="toggle(this)">720</div>
+059 |       <div class="trick" onclick="toggle(this)">900</div>
+060 |       <div class="trick" onclick="toggle(this)">1080</div>
+061 |     </div>
+062 |
+063 |     <script>
+064 |       function toggle(el) {
+065 |         el.classList.toggle('completed');
+066 |         localStorage.setItem('shred-' + el.innerText, el.classList.contains('completed'));
+067 |       }
+068 |       // Load saved progress
+069 |       document.addEventListener('DOMContentLoaded', function() {
+070 |         document.querySelectorAll('.trick').forEach(t => {
+071 |           if (localStorage.getItem('shred-' + t.innerText) === 'true') t.classList.add('completed');
+072 |         });
+073 |       });
+074 |     </script>
+075 |
+076 |     <!-- GEAR WE RIDE -->
+077 |     <h2>Gear We Ride</h2>
+078 |     <p>Our favorites — links help fund this tool.</p>
+079 |     <div class="gear-card">
+080 |       <strong>Burton Custom Snowboard</strong> – £549<br>
+081 |       <a href="https://www.awin1.com/cread.php?awinmid=6599&awinaffid=1283456&clickref=shred-blue&p=https%3A%2F%2Fwww.bluetomato.com%2Fen_GB%2Fburton-custom-snowboard" target="_blank">Buy at Blue Tomato →</a>
+082 |     </div>
+083 |     <div class="gear-card">
+084 |       <strong>Salomon Huck Knife</strong> – £420<br>
+085 |       <a href="https://www.awin1.com/cread.php?awinmid=1025&awinaffid=1283456&clickref=shred-abs&p=https%3A%2F%2Fwww.absolute-snow.co.uk%2Fsalomon-huck-knife" target="_blank">Buy at Absolute Snow →</a>
+086 |     </div>
+087 |     <div class="gear-card">
+088 |       <strong>Anon M4 Goggles</strong> – £280<br>
+089 |       <a href="https://www.awin1.com/cread.php?awinmid=18781&awinaffid=1283456&clickref=shred-asylum&p=https%3A%2F%2Fwww.snowboard-asylum.com%2Fanon-m4" target="_blank">Buy at Snowboard Asylum →</a>
+090 |     </div>
+091 |
+092 |     <!-- TRIP PLANNER -->
+093 |     <h2>Where to Shred Next</h2>
+094 |     <p>Level up IRL — budget to premium.</p>
+095 |     <div class="trip-card">
+096 |       <strong>Budget: Tignes, France (Sunweb)</strong> – £650/pp<br>
+097 |       <a href="https://www.awin1.com/cread.php?awinmid=22356&awinaffid=1283456&clickref=shred-sunweb&p=https%3A%2F%2Fwww.sunweb.co.uk%2Fski%2Ftignes" target="_blank">Book Now →</a>
+098 |     </div>
+099 |     <div class="trip-card">
+100|       <strong>Mid: Chamonix (Skiworld)</strong> – £800/pp<br>
+101|       <a href="https://www.awin1.com/cread.php?awinmid=1177&awinaffid=1283456&clickref=shred-skiworld&p=https%3A%2F%2Fwww.skiworld.co.uk%2Fchamonix" target="_blank">Book Now →</a>
+102|     </div>
+103|     <div class="trip-card">
+104|       <strong>Premium: Verbier (Inghams)</strong> – £1,200/pp<br>
+105|       <a href="https://www.awin1.com/cread.php?awinmid=1177&awinaffid=1283456&clickref=shred-inghams&p=https%3A%2F%2Fwww.inghams.co.uk%2Fski-holidays%2Fverbier" target="_blank">Book Now →</a>
+106|     </div>
+107 |
+108|     <!-- ABOUT SECTION -->
+109|     <section id="about">
+110|       <h2>About Shred Summit</h2>
+111|       <p>Built by a UK rider with 8 years on snow. This free tool tracks your trick progression — from 50-50s to 1080s. No sign-up. No ads. Just shredding.</p>
+112|       <p>We link trusted UK gear & trips (we earn a small cut to keep it free).</p>
+113|       <p>Questions? DM on <a href="https://reddit.com/u/u/shredsummit" target="_blank">Reddit</a>.</p>
+114|     </section>
+115|   </div>
+116 |
+117|   <!-- FOOTER -->
+118|   <footer>
+119|     <p>© 2025 Shred Summit | <a href="privacy.html">Privacy Policy</a> | Built with ❤️ in the UK</p>
+120|   </footer>
+121 |
+122| </body>
+123| </html>
