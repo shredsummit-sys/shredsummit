@@ -3,6 +3,18 @@ Snowboarding for snownboards
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- GOOGLE ANALYTICS — PASTE BELOW -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-456R5S4LS0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-456R5S4LS0');
+  </script>
+  <!-- END GOOGLE ANALYTICS -->
+
+  <meta charset="UTF-8">
+  ...
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shred Summit 2026 | Home</title>
