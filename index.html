@@ -65,100 +65,98 @@
 065 |         el.classList.toggle('completed');
 066 |         localStorage.setItem('shred-' + el.innerText, el.classList.contains('completed'));
 067 |       }
-068 |       // Load saved progress
-069 |       document.addEventListener('DOMContentLoaded', function() {
-070 |         document.querySelectorAll('.trick').forEach(t => {
-071 |           if (localStorage.getItem('shred-' + t.innerText) === 'true') t.classList.add('completed');
-072 |         });
-073 |       });
-074 |     </script>
-075 |
-001 |     <!-- PROGRESS BAR -->
-002 |     <div style="margin: 20px 0; text-align: center;">
-003 |       <p><strong>Your Progress:</strong> <span id="progress">0%</span></p>
-004 |       <div style="width: 100%; background: #334155; height: 20px; border-radius: 10px; overflow: hidden;">
-005 |         <div id="progressBar" style="width: 0%; height: 100%; background: #22c55e; transition: width 0.5s;"></div>
-006 |       </div>
-007 |     </div>
-008 |001 |     <!-- SHARE BUTTON -->
-002 |     <div style="text-align: center; margin: 30px 0;">
-003 |       <button onclick="shareProgress()" style="background: #60a5fa; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1em;">
-004 |         Share My Progress 🔥
-005 |       </button>
-006 |     </div>
-007 |
-008 |     <script>
-009 |       function shareProgress() {
-010 |         const completed = Array.from(document.querySelectorAll('.trick.completed')).map(t => t.innerText).join(', ');
-011 |         const text = `I just hit ${completed || 'Ollie'} on Shred Summit! Free trick tracker: https://shredsummit-sys.github.io/shredsummit`;
-012 |         navigator.clipboard.writeText(text).then(() => {
-013 |           alert('Copied to clipboard! Paste on Reddit or Discord 🚀');
-014 |         }).catch(() => {
-015 |           prompt('Copy this:', text);
-016 |         });
-017 |       }
-018 |     </script>
-009 |     <script>
-010 |       function updateProgress() {
-011 |         const total = document.querySelectorAll('.trick').length;
-012 |         const completed = document.querySelectorAll('.trick.completed').length;
-013 |         const percent = Math.round((completed / total) * 100);
-014 |         document.getElementById('progress').innerText = percent + '%';
-015 |         document.getElementById('progressBar').style.width = percent + '%';
-016 |       }
-017 |       document.querySelectorAll('.trick').forEach(t => {
-018 |         t.addEventListener('click', updateProgress);
-019 |       });
-020 |       updateProgress(); // Run on load
-021 |     </script>
-076 |     <!-- GEAR WE RIDE -->
-077 |     <h2>Gear We Ride</h2>
-078 |     <p>Our favorites — links help fund this tool.</p>
-079 |     <div class="gear-card">
-080 |       <strong>Burton Custom Snowboard</strong> – £549<br>
-081 |       <a href="https://www.awin1.com/cread.php?awinmid=6599&awinaffid=1283456&clickref=shred-blue&p=https%3A%2F%2Fwww.bluetomato.com%2Fen_GB%2Fburton-custom-snowboard" target="_blank">Buy at Blue Tomato →</a>
-082 |     </div>
-083 |     <div class="gear-card">
-084 |       <strong>Salomon Huck Knife</strong> – £420<br>
-085 |       <a href="https://www.awin1.com/cread.php?awinmid=1025&awinaffid=1283456&clickref=shred-abs&p=https%3A%2F%2Fwww.absolute-snow.co.uk%2Fsalomon-huck-knife" target="_blank">Buy at Absolute Snow →</a>
-086 |     </div>
-087 |     <div class="gear-card">
-088 |       <strong>Anon M4 Goggles</strong> – £280<br>
-089 |       <a href="https://www.awin1.com/cread.php?awinmid=18781&awinaffid=1283456&clickref=shred-asylum&p=https%3A%2F%2Fwww.snowboard-asylum.com%2Fanon-m4" target="_blank">Buy at Snowboard Asylum →</a>
-090 |     </div>
-091 |
-092 |     <!-- TRIP PLANNER -->
-093 |     <h2>Where to Shred Next</h2>
-094 |     <p>Level up IRL — budget to premium.</p>
-095 |     <div class="trip-card">
-096 |       <strong>Budget: Tignes, France (Sunweb)</strong> – £650/pp<br>
-097 |       <a href="https://www.awin1.com/cread.php?awinmid=22356&awinaffid=1283456&clickref=shred-sunweb&p=https%3A%2F%2Fwww.sunweb.co.uk%2Fski%2Ftignes" target="_blank">Book Now →</a>
-098 |     </div>
-099 |     <div class="trip-card">
-100|       <strong>Mid: Chamonix (Skiworld)</strong> – £800/pp<br>
-101|       <a href="https://www.awin1.com/cread.php?awinmid=1177&awinaffid=1283456&clickref=shred-skiworld&p=https%3A%2F%2Fwww.skiworld.co.uk%2Fchamonix" target="_blank">Book Now →</a>
-102|     </div>
-103|     <div class="trip-card">
-104|       <strong>Premium: Verbier (Inghams)</strong> – £1,200/pp<br>
-105|       <a href="https://www.awin1.com/cread.php?awinmid=1177&awinaffid=1283456&clickref=shred-inghams&p=https%3A%2F%2Fwww.inghams.co.uk%2Fski-holidays%2Fverbier" target="_blank">Book Now →</a>
-106|     </div>
-107 |001 |     <div class="trip-card">
-002 |       <strong>UK Indoor: Milton Keynes SnowDome</strong> – £50/day<br>
-003 |       <a href="https://www.awin1.com/cread.php?awinmid=1025&awinaffid=1283456&clickref=shred-dome&p=https%3A%2F%2Fwww.snowdome.co.uk%2F" target="_blank">Book Session →</a>
-004 |     </div>
-108|     <!-- ABOUT SECTION -->
-109|     <section id="about">
-110|       <h2>About Shred Summit</h2>
-111|       <p>Built by a UK rider with 8 years on snow. This free tool tracks your trick progression — from 50-50s to 1080s. No sign-up. No ads. Just shredding.</p>
-112|       <p>We link trusted UK gear & trips (we earn a small cut to keep it free).</p>
-113|       <p>Questions? DM on <a href="https://reddit.com/u/u/shredsummit" target="_blank">Reddit</a>.</p>
-114|     </section>
-115|   </div>
-116 |
-117|   <!-- FOOTER -->
-118|   <footer>
-119|     <p>© 2025 Shred Summit | <a href="privacy.html">Privacy Policy</a> | Built with ❤️ in the UK</p>
-120|   </footer>
-121 |
-122| </body>
-123| </html>
+068 |       document.addEventListener('DOMContentLoaded', function() {
+069 |         document.querySelectorAll('.trick').forEach(t => {
+070 |           if (localStorage.getItem('shred-' + t.innerText) === 'true') t.classList.add('completed');
+071 |         });
+072 |       });
+073 |     </script>
+074 |
+075 |     <!-- PROGRESS BAR -->
+076 |     <div style="margin: 20px 0; text-align: center;">
+077 |       <p><strong>Your Progress:</strong> <span id="progress">0%</span></p>
+078 |       <div style="width: 100%; background: #334155; height: 20px; border-radius: 10px; overflow: hidden;">
+079 |         <div id="progressBar" style="width: 0%; height: 100%; background: #22c55e; transition: width 0.5s;"></div>
+080 |       </div>
+081 |     </div>
+082 |
+083 |     <!-- SHARE BUTTON -->
+084 |     <div style="text-align: center; margin: 30px 0;">
+085 |       <button onclick="shareProgress()" style="background: #60a5fa; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1em;">
+086 |         Share My Progress 🔥
+087 |       </button>
+088 |     </div>
+089 |
+090 |     <script>
+091 |       function updateProgress() {
+092 |         const total = document.querySelectorAll('.trick').length;
+093 |         const completed = document.querySelectorAll('.trick.completed').length;
+094 |         const percent = Math.round((completed / total) * 100);
+095 |         document.getElementById('progress').innerText = percent + '%';
+096 |         document.getElementById('progressBar').style.width = percent + '%';
+097 |       }
+098 |       function shareProgress() {
+099 |         const completed = Array.from(document.querySelectorAll('.trick.completed')).map(t => t.innerText).join(', ');
+100 |         const text = `I just hit ${completed || 'Ollie'} on Shred Summit! Free trick tracker: https://shredsummit-sys.github.io/shredsummit`;
+101 |         navigator.clipboard.writeText(text).then(() => {
+102 |           alert('Copied! Paste on Reddit or Discord 🚀');
+103 |         }).catch(() => {
+104 |           prompt('Copy this:', text);
+105 |         });
+106 |       }
+107 |       document.querySelectorAll('.trick').forEach(t => t.addEventListener('click', updateProgress));
+108 |       updateProgress();
+109 |     </script>
+110 |
+111 |     <!-- GEAR WE RIDE -->
+112 |     <h2>Gear We Ride</h2>
+113 |     <p>Our favorites — links help fund this tool.</p>
+114 |     <div class="gear-card">
+115 |       <strong>Burton Custom Snowboard</strong> – £549<br>
+116 |       <a href="https://www.awin1.com/cread.php?awinmid=6599&awinaffid=1283456&clickref=shred-blue&p=https%3A%2F%2Fwww.bluetomato.com%2Fen_GB%2Fburton-custom-snowboard" target="_blank">Buy at Blue Tomato →</a>
+117 |     </div>
+118 |     <div class="gear-card">
+119 |       <strong>Salomon Huck Knife</strong> – £420<br>
+120 |       <a href="https://www.awin1.com/cread.php?awinmid=1025&awinaffid=1283456&clickref=shred-abs&p=https%3A%2F%2Fwww.absolute-snow.co.uk%2Fsalomon-huck-knife" target="_blank">Buy at Absolute Snow →</a>
+121 |     </div>
+122 |     <div class="gear-card">
+123 |       <strong>Anon M4 Goggles</strong> – £280<br>
+124 |       <a href="https://www.awin1.com/cread.php?awinmid=18781&awinaffid=1283456&clickref=shred-asylum&p=https%3A%2F%2Fwww.snowboard-asylum.com%2Fanon-m4" target="_blank">Buy at Snowboard Asylum →</a>
+125 |     </div>
+126 |
+127 |     <!-- TRIP PLANNER -->
+128 |     <h2>Where to Shred Next</h2>
+129 |     <p>Level up IRL — budget to premium.</p>
+130 |     <div class="trip-card">
+131 |       <strong>Budget: Tignes, France (Sunweb)</strong> – £650/pp<br>
+132 |       <a href="https://www.awin1.com/cread.php?awinmid=22356&awinaffid=1283456&clickref=shred-sunweb&p=https%3A%2F%2Fwww.sunweb.co.uk%2Fski%2Ftignes" target="_blank">Book Now →</a>
+133 |     </div>
+134 |     <div class="trip-card">
+135 |       <strong>Mid: Chamonix (Skiworld)</strong> – £800/pp<br>
+136 |       <a href="https://www.awin1.com/cread.php?awinmid=1177&awinaffid=1283456&clickref=shred-skiworld&p=https%3A%2F%2Fwww.skiworld.co.uk%2Fchamonix" target="_blank">Book Now →</a>
+137 |     </div>
+138 |     <div class="trip-card">
+139 |       <strong>Premium: Verbier (Inghams)</strong> – £1,200/pp<br>
+140 |       <a href="https://www.awin1.com/cread.php?awinmid=1177&awinaffid=1283456&clickref=shred-inghams&p=https%3A%2F%2Fwww.inghams.co.uk%2Fski-holidays%2Fverbier" target="_blank">Book Now →</a>
+141 |     </div>
+142 |     <div class="trip-card">
+143 |       <strong>UK Indoor: Milton Keynes SnowDome</strong> – £50/day<br>
+144 |       <a href="https://www.awin1.com/cread.php?awinmid=1025&awinaffid=1283456&clickref=shred-dome&p=https%3A%2F%2Fwww.snowdome.co.uk%2F" target="_blank">Book Session →</a>
+145 |     </div>
+146 |
+147 |     <!-- ABOUT SECTION -->
+148 |     <section id="about">
+149 |       <h2>About Shred Summit</h2>
+150 |       <p>Built by a UK rider with 8 years on snow. This free tool tracks your trick progression — from 50-50s to 1080s. No sign-up. No ads. Just shredding.</p>
+151 |       <p>We link trusted UK gear & trips (we earn a small cut to keep it free).</p>
+152 |       <p>Questions? DM on <a href="https://reddit.com/u/shredsummit" target="_blank">Reddit</a>.</p>
+153 |     </section>
+154 |   </div>
+155 |
+156 |   <!-- FOOTER -->
+157 |   <footer>
+158 |     <p>© 2025 Shred Summit | <a href="privacy.html">Privacy Policy</a> | Built with ❤️ in the UK</p>
+159 |   </footer>
+160 |
+161 | </body>
+162 | </html>
